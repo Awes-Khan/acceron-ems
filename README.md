@@ -107,10 +107,11 @@ Include the desired query parameters in the request body as JSON to filter and s
 ![Success Image](
 https://github.com/Awes-Khan/acceron-ems/blob/main/public/image.png)
 
+### PhpMyAdmin - All Data Uploaded
+![PHPMyadmin](
+https://github.com/Awes-Khan/acceron-ems/blob/main/public/image-2.png)
+
 ### API Request Success
 ![API Screenshot](
 https://github.com/Awes-Khan/acceron-ems/blob/main/public/image-1.png)
 
-### PhpMyAdmin - All Data Uploaded
-![PHPMyadmin](
-https://github.com/Awes-Khan/acceron-ems/blob/main/public/image-2.png)
