@@ -1,4 +1,5 @@
 # Laravel Employee Data Management
+[![Laravel Version](https://img.shields.io/badge/Laravel-10.2.3-orange.svg)](https://laravel.com/) [![PHP Version](https://img.shields.io/badge/PHP-v8.2-blue.svg)](https://www.php.net/releases/8_2_0.php)
 
 This project is a Laravel-based web application that allows you to upload employee data from an Excel sheet and insert it into a database. It also provides an API endpoint to retrieve employee data based on specific search criteria.
 
