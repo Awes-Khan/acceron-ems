@@ -16,9 +16,16 @@
                         {{-- {{ __('You are logged in!') }} --}}
 
                         <div>
-                            <form class="w-px-500 p-3 p-md-3" action="{{ route('import') }}" method="post"
-                                enctype="multipart/form-data">
+                            <form class="w-px-500 p-3 p-md-3" action="{{ route('import') }}"
+                                accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel,text/comma-separated-values, text/csv, application/csv"
+                                method="post" enctype="multipart/form-data">
                                 @csrf
+                                @if (session()->has('success'))
+                                    <div class="alert alert-success">
+                                        {{ session()->get('success') }}
+                                    </div>
+                                @endif
+
                                 <div class="row mb-3">
                                     <label class="col-sm-3 col-form-label">File</label>
                                     <div class="col-sm-9">

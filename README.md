@@ -1,66 +1,96 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel Employee Data Management
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This project is a Laravel-based web application that allows you to upload employee data from an Excel sheet and insert it into a database. It also provides an API endpoint to retrieve employee data based on specific search criteria.
 
-## About Laravel
+## Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+1. Upload Employee Data: The application provides a feature to upload an Excel sheet containing employee data. The data from the Excel sheet is extracted and inserted into the database.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+2. API for Employee Data Retrieval: The application exposes an API endpoint to retrieve employee data based on specific search parameters. The available request parameters for the API are:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+    - `search`: Employee code to search for a specific employee. (optional)
+    - `job_title`: Job title of the employee. (optional)
+    - `department`: Department of the employee. (optional)
+    - `gender`: Gender of the employee. (optional)
+    - `Country`: Country of the employee. (optional)
+    - `City`: City of the employee. (optional)
+    - `from_hiring_date`: Starting date to filter employees based on their hiring date. (optional)
+    - `to_hiring_date`: Ending date to filter employees based on their hiring date. (optional)
+    - `sort_by`: Sorting criteria for the retrieved employee data. (optional)
 
-## Learning Laravel
+    Note: All the listed parameters can be empty, allowing for more flexible searches.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Installation
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. Clone the repository:
+   `git clone https://github.com/Awes-Khan/acceron-ems.git`
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+2. Navigate to the project directory:
 
-## Laravel Sponsors
+`cd acceron-ems`
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+3. Install the dependencies using Composer:
 
-### Premium Partners
+`composer install`
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+4. Create a copy of the `.env.example` file and rename it to `.env`. Update the necessary configuration values such as the database connection details.
 
-## Contributing
+`cp .env.example .env`
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+5. Generate a new application key:
 
-## Code of Conduct
+`php artisan key:generate`
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+6. Run the database migrations to create the required tables:
 
-## Security Vulnerabilities
+`php artisan migrate`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+7. Start the local development server:
 
-## License
+`php artisan serve`
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+`npm run dev`
+
+8. Access the application in your web browser at `http://localhost:8000`.
+
+## Usage
+
+### Uploading Employee Data
+
+1. From the dashboard, navigate to the "Upload Employee Data" section.
+
+2. Choose an Excel sheet containing the employee data and click on the "Upload" button.
+
+3. The application will extract the data from the Excel sheet and insert it into the database.
+
+### Retrieving Employee Data via API
+
+To retrieve employee data using the API endpoint, make a POST request to the following URL:
+
+`http://localhost:8000/api/search`
+
+Include the desired query parameters in the request body as JSON to filter and sort the employee data. For example:
+
+```json
+{
+    "search": "E02003",
+    "job_title": "Analyst",
+    "department": "Sales",
+    "gender": "Male",
+    "Country": "United States",
+    "City": "Chicago",
+    "from_hiring_date": "2023-01-01",
+    "to_hiring_date": "2023-06-01",
+    "sort_by": "hiring_date"
+}
+```
+
+###Screenshots
+##Uploaded Employee Data
+![Success Image](image.png)
+
+##API Request Success
+![API Screenshot](image-1.png)
+
+##PhpMyAdmin - All Data Uploaded
+![PHPMyadmin](image-2.png)
