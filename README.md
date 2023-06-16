@@ -25,43 +25,58 @@ This project is a Laravel-based web application that allows you to upload employ
 
 1. Clone the repository:
 
-   ```git clone https://github.com/Awes-Khan/acceron-ems.git```
+   ```
+   git clone https://github.com/Awes-Khan/acceron-ems.git
+   ```
 
 3. Navigate to the project directory:
 
-    ```cd acceron-ems```
+    ```
+   cd acceron-ems
+    ```
 
-4. Install the dependencies using Composer:
+5. Install the dependencies using Composer:
 
-    ```composer install```
+    ```
+   composer install
+    ```
 
 4. Create a copy of the ```.env.example``` file and rename it to ```.env```. Update the necessary configuration values such as the database connection details.
 
-    ```cp .env.example .env```
+    ```
+   cp .env.example .env
+    ```
 
-5. Generate a new application key:
+6. Generate a new application key:
 
-    ```php artisan key:generate```
+    ```
+   php artisan key:generate
+    ```
 
-6. Run the database migrations to create the required tables:
+7. Run the database migrations to create the required tables:
 
-    ```php artisan migrate```
+    ```
+   php artisan migrate
+    ```
 
-7. Start the local development server:
+8. Start the local development server:
 
-    ```php artisan serve```
 
-    ```npm run dev```
+    ```
+    php artisan serve
 
-8. Access the application in your web browser at ```http://localhost:8000```.
+    npm run dev
+     ```
+
+9. Access the application in your web browser at `http://localhost:8000`.
 
 ## Usage
 
 ### Uploading Employee Data
 
-1. From the dashboard, navigate to the "Upload Employee Data" section.
+1. Navigate to the `http://localhost:8000/import` to visit the "Upload Employee Data" webpage.
 
-2. Choose an Excel sheet containing the employee data and click on the "Upload" button.
+2. Choose an Excel sheet containing the employee data and click on the "Submit" button.
 
 3. The application will extract the data from the Excel sheet and insert it into the database.
 
@@ -69,7 +84,7 @@ This project is a Laravel-based web application that allows you to upload employ
 
 To retrieve employee data using the API endpoint, make a POST request to the following URL:
 
-    ```http://localhost:8000/api/search```
+    http://localhost:8000/api/search
 
 Include the desired query parameters in the request body as JSON to filter and sort the employee data. For example:
 
